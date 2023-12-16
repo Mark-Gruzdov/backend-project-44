@@ -7,3 +7,6 @@ brain-games: #команда запуска игры без глобальной
 
 publish: #публикация
 	npm publish --dry-run
+
+lint: #проверка линтером
+	npx eslint .
