@@ -19,20 +19,20 @@ export default () => {
     context.question = `${firstValue} ${mathOperation} ${secondValue}`;
     console.log(`Question: ${context.question}`);
     context.answer = readlineSync.question('Your answer: ');
+
     switch (mathOperation) {
       case '+':
-        context.correctAnswer = String(Number(firstValue) + Number(secondValue));
+        context.correctAnswer = String(firstValue + secondValue);
         break;
       case '-':
-        context.correctAnswer = String(Number(firstValue) - Number(secondValue));
+        context.correctAnswer = String(firstValue - secondValue);
         break;
       case '*':
-        context.correctAnswer = String(Number(firstValue) * Number(secondValue));
+        context.correctAnswer = String(firstValue * secondValue);
         break;
       default:
         break;
     }
-    console.log(context.correctAnswer);
     context = getAnswer(context);
 
     if (context.count === 3) {

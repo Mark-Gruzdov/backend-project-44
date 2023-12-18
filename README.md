@@ -3,3 +3,4 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/5616b74f2f0f6175618a/maintainability)](https://codeclimate.com/github/Mark-Gruzdov/backend-project-44/maintainability)
 [![asciicast](https://asciinema.org/a/vB8IU3LacACRAXw7876avVfQj.svg)](https://asciinema.org/a/vB8IU3LacACRAXw7876avVfQj)
 [![asciicast](https://asciinema.org/a/8iKEGZQdLSPgJa0mq6eGijiHU.svg)](https://asciinema.org/a/8iKEGZQdLSPgJa0mq6eGijiHU)
+[![asciicast](https://asciinema.org/a/ssOici2RawhkU2XwdTVuUoQT6.svg)](https://asciinema.org/a/ssOici2RawhkU2XwdTVuUoQT6)
