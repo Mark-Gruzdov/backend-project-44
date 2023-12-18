@@ -7,6 +7,9 @@ brain-games: #команда запуска игры без глобальной
 
 brain-even:
 	node bin/brain-even.js
+	
+brain-calc:
+	node bin/brain-calc.js
 
 publish: #публикация
 	npm publish --dry-run

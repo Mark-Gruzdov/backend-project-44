@@ -5,11 +5,13 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node bin/brain-even.js"
   },
   "bin": {
     "brain-games": "bin/brain-games.js",
-    "brain-even":"bin/brain-even.js"
+    "brain-even": "bin/brain-even.js",
+    "brain-calc": "bin/brain-calc.js"
   },
   "author": "Mark Gruzdov",
   "license": "ISC",
