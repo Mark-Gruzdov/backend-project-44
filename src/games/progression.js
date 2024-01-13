@@ -1,13 +1,14 @@
 import readlineSync from 'readline-sync';
-import { getGreeting, getRandomInt, getAnswer } from '../src/index.js';
+import { getGreeting, getRandomInt, getAnswer } from '../index.js';
 
 export default () => {
   const name = getGreeting();
-  console.log('What number is missing in the progression?');
+  const rules = 'What number is missing in the progression?';
   let context = {
     count: 0,
     attempts: true,
     name,
+    rules,
   };
 
   while (context.attempts) {

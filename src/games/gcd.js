@@ -1,13 +1,14 @@
 import readlineSync from 'readline-sync';
-import { getGreeting, getRandomInt, getAnswer } from '../src/index.js';
+import { getGreeting, getRandomInt, getAnswer } from '../index.js';
 
 export default () => {
   const name = getGreeting();
-  console.log('Find the greatest common divisor of given numbers.');
+  const rules = 'Find the greatest common divisor of given numbers.';
   let context = {
     count: 0,
     attempts: true,
     name,
+    rules,
   };
 
   while (context.attempts) {

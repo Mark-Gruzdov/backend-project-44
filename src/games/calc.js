@@ -1,14 +1,15 @@
 import readlineSync from 'readline-sync';
-import { getGreeting, getRandomInt, getAnswer } from '../src/index.js';
+import { getGreeting, getRandomInt, getAnswer } from '../index.js';
 
 export default () => {
   const mathematicalOperations = ['+', '-', '*'];
   const name = getGreeting();
-  console.log('What is the result of the expression?');
+  const rules = 'What is the result of the expression?';
   let context = {
     count: 0,
     attempts: true,
     name,
+    rules,
   };
 
   while (context.attempts) {
