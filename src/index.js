@@ -1,9 +1,5 @@
 import readlineSync from 'readline-sync';
-import getCalcQuestion from './utils/get-calc-question.js';
-import getEvenQuestion from './utils/get-even-question.js';
-import getGcdQuestion from './utils/get-gcd-question.js';
-import getProgressionQuestion from './utils/get-progression-question.js';
-import getPrimeQuestion from './utils/get-prime.question.js';
+import getQuestion from './utils/get-question.js';
 
 export default function playGame(context) {
   console.log('Welcome to the Brain Games!');
@@ -12,25 +8,7 @@ export default function playGame(context) {
   console.log(context.rules);
 
   while (context.attempts) {
-    switch (context.title) {
-      case 'brain-calc':
-        context.question = getCalcQuestion(context);
-        break;
-      case 'brain-even':
-        context.question = getEvenQuestion(context);
-        break;
-      case 'brain-gcd':
-        context.question = getGcdQuestion(context);
-        break;
-      case 'brain-progression':
-        context.question = getProgressionQuestion(context);
-        break;
-      case 'brain-prime':
-        context.question = getPrimeQuestion(context);
-        break;
-      default:
-        break;
-    }
+    context.question = getQuestion(context);
 
     console.log(`Question: ${context.question}`);
     context.answer = readlineSync.question('Your answer: ');
