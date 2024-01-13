@@ -2,16 +2,15 @@ import readlineSync from 'readline-sync';
 import getQuestion from './utils/get-question.js';
 
 export default function playGame(context) {
-  console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${name}!`);
-  console.log(context.rules);
+  const name = readlineSync.question('Welcome to the Brain Games!\nMay I have your name? ');
+  console.log(`Hello, ${name}!\n${context.rules}`);
 
   while (context.attempts) {
     context.question = getQuestion(context);
 
     console.log(`Question: ${context.question}`);
     context.answer = readlineSync.question('Your answer: ');
+
     if (context.answer === context.correctAnswer) {
       context.count += 1;
       console.log('Correct!');
