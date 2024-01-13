@@ -1,44 +1,12 @@
-import readlineSync from 'readline-sync';
-import { getGreeting, getRandomInt, getAnswer } from '../index.js';
+import playGame from '../index.js';
 
 export default () => {
-  const mathematicalOperations = ['+', '-', '*'];
-  const name = getGreeting();
-  const rules = 'What is the result of the expression?';
-  let context = {
+  const context = {
+    title: 'brain-calc',
     count: 0,
     attempts: true,
-    name,
-    rules,
+    rules: 'What is the result of the expression?',
   };
 
-  while (context.attempts) {
-    const firstValue = getRandomInt(0, 101);
-    const secondValue = getRandomInt(0, 101);
-    const mathOperation = mathematicalOperations[getRandomInt(0, 3)];
-
-    context.question = `${firstValue} ${mathOperation} ${secondValue}`;
-    console.log(`Question: ${context.question}`);
-    context.answer = readlineSync.question('Your answer: ');
-
-    switch (mathOperation) {
-      case '+':
-        context.correctAnswer = String(firstValue + secondValue);
-        break;
-      case '-':
-        context.correctAnswer = String(firstValue - secondValue);
-        break;
-      case '*':
-        context.correctAnswer = String(firstValue * secondValue);
-        break;
-      default:
-        break;
-    }
-    context = getAnswer(context);
-
-    if (context.count === 3) {
-      console.log(`Congratulations, ${context.name}!`);
-      break;
-    }
-  }
+  playGame(context);
 };

@@ -1,32 +1,12 @@
-import readlineSync from 'readline-sync';
-import { getGreeting, getRandomInt, getAnswer } from '../index.js';
+import playGame from '../index.js';
 
 export default () => {
-  const name = getGreeting();
-  const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
-  let context = {
+  const context = {
+    title: 'brain-even',
     count: 0,
     attempts: true,
-    name,
-    rules,
+    rules: 'Answer "yes" if the number is even, otherwise answer "no".',
   };
 
-  while (context.attempts) {
-    context.question = getRandomInt(0, 101);
-    console.log(`Question: ${context.question}`);
-    context.answer = readlineSync.question('Your answer: ');
-
-    if (context.question % 2 === 0) {
-      context.correctAnswer = 'yes';
-    } else {
-      context.correctAnswer = 'no';
-    }
-
-    context = getAnswer(context);
-
-    if (context.count === 3) {
-      console.log(`Congratulations, ${context.name}!`);
-      break;
-    }
-  }
+  playGame(context);
 };
