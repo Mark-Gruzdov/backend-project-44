@@ -1,6 +1,6 @@
 import playGame from '../index.js';
 
-export default () => {
+export default function getGcd() {
   const context = {
     title: 'brain-gcd',
     count: 0,
@@ -9,4 +9,4 @@ export default () => {
   };
 
   playGame(context);
-};
+}

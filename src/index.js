@@ -8,8 +8,7 @@ export default function playGame(context) {
   while (context.attempts) {
     context.question = getQuestion(context);
 
-    console.log(`Question: ${context.question}`);
-    context.answer = readlineSync.question('Your answer: ');
+    context.answer = readlineSync.question(`Question: ${context.question}\nYour answer: `);
 
     if (context.answer === context.correctAnswer) {
       context.count += 1;
