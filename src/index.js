@@ -47,5 +47,4 @@ export default function playGame(context) {
       break;
     }
   }
-  return name;
 }
