@@ -16,7 +16,8 @@ export default function getProgressionQuestion(context) {
   }
   context.correctAnswer = String(progression[hiddenValue]);
   progression[hiddenValue] = '..';
-  context.question = progression;
+
+  context.question = progression.join(' ');
 
   return context.question;
 }
