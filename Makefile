@@ -2,22 +2,24 @@
 install: #установить зависимости
 	npm ci
 
-brain-games: #команда запуска игры без глобальной установки
+#команды запуска игр без глобальной установки
+
+brain-games:
 	node bin/brain-games.js
 
-brain-even:
+brain-even: #проверка на четность
 	node bin/brain-even.js
-	
-brain-calc:
+
+brain-calc: #калькулятор
 	node bin/brain-calc.js
 	
-brain-gcd:
+brain-gcd: #наибольший общий делитель
 	node bin/brain-gcd.js
 
-brain-progression:
+brain-progression: #арифметическая прогрессия
 	node bin/brain-progression.js
 
-brain-prime:
+brain-prime: #простое ли число
 	node bin/brain-prime.js
 
 publish: #публикация
