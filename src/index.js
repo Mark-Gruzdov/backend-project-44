@@ -11,7 +11,6 @@ export default function playGame(gameRules, generateGameData) {
     const correctAnswer = gameData[1];
 
     console.log(`Question: ${question}`);
-    console.log(`correct >>> ${correctAnswer}`);
     const answer = readlineSync.question('Your answer: ');
 
     if (answer !== correctAnswer) {
