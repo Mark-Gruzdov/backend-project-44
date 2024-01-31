@@ -15,7 +15,7 @@ export default function playGame(gameRules, generateGameData) {
 
     if (answer !== correctAnswer) {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-      return (`Let's try again, ${name}!`);
+      return (console.log(`Let's try again, ${name}!`));
     }
 
     console.log('Correct!');
