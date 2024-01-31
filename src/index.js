@@ -1,26 +1,26 @@
 import readlineSync from 'readline-sync';
-import getQuestion from './utils/get-question.js';
 
-export default function playGame(context) {
-  const name = readlineSync.question('Welcome to the Brain Games!\nMay I have your name? ');
-  console.log(`Hello, ${name}!\n${context.rules}`);
+export default function playGame(gameRules, generateGameData) {
+  console.log('Welcome to the Brain Games!');
+  const name = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${name}!\n${gameRules}`);
 
-  while (context.attempts) {
-    context.question = getQuestion(context);
+  for (let count = 0; count < 3; count += 1) {
+    const gameData = generateGameData();
+    const question = gameData[0];
+    const correctAnswer = gameData[1];
 
-    context.answer = readlineSync.question(`Question: ${context.question}\nYour answer: `);
+    console.log(`Question: ${question}`);
+    console.log(`correct >>> ${correctAnswer}`);
+    const answer = readlineSync.question('Your answer: ');
 
-    if (context.answer === context.correctAnswer) {
-      context.count += 1;
-      console.log('Correct!');
-    } else {
-      console.log(`'${context.answer}' is wrong answer ;(. Correct answer was '${context.correctAnswer}'.\nLet's try again, ${name}!`);
-      context.attempts = false;
+    if (answer !== correctAnswer) {
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
+      return (`Let's try again, ${name}!`);
     }
 
-    if (context.count === 3) {
-      console.log(`Congratulations, ${name}!`);
-      break;
-    }
+    console.log('Correct!');
   }
+
+  return (console.log(`Congratulations, ${name}!`));
 }
