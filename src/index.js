@@ -4,8 +4,9 @@ export default function playGame(gameRules, generateGameData) {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!\n${gameRules}`);
+  const numberOfRounds = 3;
 
-  for (let count = 0; count < 3; count += 1) {
+  for (let count = 0; count < numberOfRounds; count += 1) {
     const gameData = generateGameData();
     const question = gameData[0];
     const correctAnswer = gameData[1];

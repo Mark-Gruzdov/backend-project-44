@@ -1,26 +1,37 @@
 import playGame from '../index.js';
 import getRandomInt from '../utils/get-random-int.js';
 
-function generateGameData() {
-  const progression = [];
-  progression.length = getRandomInt(5, 10);
-  const firstValue = getRandomInt(1, 101);
-  const hiddenValue = getRandomInt(0, progression.length - 1);
-  const progressionStep = getRandomInt(1, 10);
-
-  for (let count = 0; count < progression.length; count += 1) {
+function generateProgression(length, step, firstValue, hiddenValue) {
+  const progressionArray = [];
+  for (let count = 0; count < length; count += 1) {
     if (count === 0) {
-      progression[count] = firstValue;
+      progressionArray[count] = firstValue;
       count += 1;
     }
-    progression[count] = progression[count - 1] + progressionStep;
+    progressionArray[count] = progressionArray[count - 1] + step;
   }
-  const correctAnswer = String(progression[hiddenValue]);
-  progression[hiddenValue] = '..';
+  const correctAnswer = String(progressionArray[hiddenValue]);
+  progressionArray[hiddenValue] = '..';
+  const question = progressionArray.join(' ');
 
-  const question = progression.join(' ');
+  return [question, correctAnswer];
+}
 
-  return ([question, correctAnswer]);
+function generateGameData() {
+  const length = getRandomInt(5, 10);
+  const firstValue = getRandomInt(1, 101);
+  const hiddenValue = getRandomInt(0, length - 1);
+  const progressionStep = getRandomInt(1, 10);
+  const gameData = generateProgression(
+    length,
+    progressionStep,
+    firstValue,
+    hiddenValue,
+  );
+  const question = gameData[0];
+  const correctAnswer = gameData[1];
+
+  return [question, correctAnswer];
 }
 
 export default function getProgression() {
