@@ -13,7 +13,6 @@ function generateGameData() {
   const secondValue = getRandomInt(0, 101);
   const question = `${firstValue} ${secondValue}`;
   const correctAnswer = gcd(firstValue, secondValue);
-  console.log(`correctAnswer >>> ${correctAnswer}`);
 
   return [question, correctAnswer];
 }
