@@ -12,9 +12,10 @@ export default function playGame(gameRules, generateGameData) {
     const correctAnswer = gameData[1];
 
     console.log(`Question: ${question}`);
+    console.log(`answer >>> ${correctAnswer}`);
     const answer = readlineSync.question('Your answer: ');
 
-    if (answer !== correctAnswer) {
+    if (answer !== String(correctAnswer)) {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       return (console.log(`Let's try again, ${name}!`));
     }

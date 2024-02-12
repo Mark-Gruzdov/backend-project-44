@@ -1,24 +1,23 @@
 import playGame from '../index.js';
 import getRandomInt from '../utils/get-random-int.js';
 
-function primeCheck(question) {
-  let result = true;
-  for (let i = 2; i <= question; i += 1) {
+function isPrime(number) {
+  const count = Math.sqrt(number);
+  for (let i = 0; i < count; i += 1) {
     if (
-      question % i === 0
-    && i !== question
+      number === 1
+      || (number % i === 0 && i !== 1)
     ) {
-      result = false;
+      return false;
     }
   }
 
-  return result;
+  return true;
 }
 
 function generateGameData() {
-  const question = getRandomInt(2, 101);
-  const isPrime = primeCheck(question);
-  const correctAnswer = isPrime ? 'yes' : 'no';
+  const question = getRandomInt(1, 101);
+  const correctAnswer = isPrime(question) ? 'yes' : 'no';
 
   return [question, correctAnswer];
 }

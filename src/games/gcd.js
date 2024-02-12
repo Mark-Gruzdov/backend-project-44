@@ -1,26 +1,19 @@
 import playGame from '../index.js';
 import getRandomInt from '../utils/get-random-int.js';
 
-function getCorrectAnswer(val1, val2) {
-  let firstValue = val1;
-  let secondValue = val2;
-  while (firstValue !== 0 && secondValue !== 0) {
-    if (firstValue > secondValue) {
-      firstValue %= secondValue;
-    } else {
-      secondValue %= firstValue;
-    }
+function gcd(val1, val2) {
+  if (val2 === 0) {
+    return val1;
   }
-  const result = String(firstValue + secondValue);
-
-  return result;
+  return gcd(val2, val1 % val2);
 }
 
 function generateGameData() {
   const firstValue = getRandomInt(0, 101);
   const secondValue = getRandomInt(0, 101);
   const question = `${firstValue} ${secondValue}`;
-  const correctAnswer = getCorrectAnswer(firstValue, secondValue);
+  const correctAnswer = gcd(firstValue, secondValue);
+  console.log(`correctAnswer >>> ${correctAnswer}`);
 
   return [question, correctAnswer];
 }

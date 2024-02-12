@@ -1,21 +1,15 @@
 import playGame from '../index.js';
 import getRandomInt from '../utils/get-random-int.js';
 
-function evenCheck(question) {
-  let result;
-
-  if (question % 2 === 0) {
-    result = 'yes';
-  } else {
-    result = 'no';
-  }
+function getCorrectAnswer(question) {
+  const result = question % 2 === 0 ? 'yes' : 'no';
 
   return result;
 }
 
 function generateGameData() {
   const question = getRandomInt(0, 101);
-  const correctAnswer = evenCheck(question);
+  const correctAnswer = getCorrectAnswer(question);
 
   return [question, correctAnswer];
 }
