@@ -3,7 +3,7 @@ import getRandomInt from '../utils/get-random-int.js';
 
 function isPrime(number) {
   const count = Math.sqrt(number);
-  for (let i = 0; i < count; i += 1) {
+  for (let i = 0; i <= count; i += 1) {
     if (
       number === 1
       || (number % i === 0 && i !== 1)
